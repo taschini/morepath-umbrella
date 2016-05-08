@@ -1,2 +1,4 @@
-# more.umbrella
-Umbrella project for morepath and extensions
+More.umbrella
+=============
+
+Umbrella project for Morepath and extensions.
