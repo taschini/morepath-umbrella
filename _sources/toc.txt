@@ -1,7 +1,5 @@
-More.umbrella
-=============
-
-Contents:
+Contents
+========
 
 .. toctree::
    :maxdepth: 2
