@@ -21,10 +21,10 @@ This project puts together the Morepath framework with related projects:
   - [more.transaction](https://github.com/morepath/more.transaction)
   - [more.webassets](https://github.com/morepath/more.webassets)
 * The example applications developed and supported within the [Morepath organization on GitHub](https://github.com/morepath):
+  - [morepath_batching](https://github.com/morepath/morepath_batching)
   - [morepath_cerebral_todomvc](https://github.com/morepath/morepath_cerebral_todomvc)
   - [morepath_reactredux](https://github.com/morepath/morepath_reactredux)
-  - [morepath_batching](https://github.com/morepath/morepath_batching)
-  - [morepath_sqlalchemy](https://github.com/morepath/morepath_sqlalchemy)
   - [morepath_rest_dump_load](https://github.com/morepath/morepath_rest_dump_load)
+  - [morepath_sqlalchemy](https://github.com/morepath/morepath_sqlalchemy)
   - [morepath_static](https://github.com/morepath/morepath_static)
   - [morepath_wiki](https://github.com/morepath/morepath_wiki)
