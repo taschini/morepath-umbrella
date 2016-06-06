@@ -20,6 +20,17 @@ def collect():
             pickle.dump(collection, f, -1)
 
 
+def top_level_packages(setup):
+    """Extract the top-level packages defined in a setup file."""
+    packages = sorted(set(setup['packages']) - set(setup.get('namespace_packages', [])))
+    i = 0
+    while i < len(packages):
+        q = packages[i]
+        i += 1
+        packages = packages[:i] + [p for p in packages[i:] if not p.startswith(q)]
+    return sorted(packages)
+
+
 def test_setup_file(subproject, monkeypatch, collect):
     import os
     import six
@@ -46,6 +57,10 @@ def test_setup_file(subproject, monkeypatch, collect):
 
     # The library name is the same as the project name
     assert os.path.basename(os.getcwd()) == setup['name']
+
+    # There is only one top-level package
+    packages = top_level_packages(setup)
+    assert len(packages) == 1
 
 
 def test_flake8_setup(subproject):
