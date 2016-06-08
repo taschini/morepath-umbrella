@@ -20,23 +20,12 @@ def collect():
             pickle.dump(collection, f, -1)
 
 
-def test_setup_file(subproject, monkeypatch, collect):
+def test_setup_file(subproject, collect):
     import os
     import six
-    import setuptools
-    from ..helpers import top_level_packages
+    from ..helpers import top_level_packages, read_setup
 
-    setup = {}
-
-    monkeypatch.setattr(setuptools, 'setup', setup.update)
-
-    # The setup file can be actually interpreted by Python
-    namespace = {'__file__': 'setup.py'}
-    exec(compile(
-        open('setup.py').read(),
-        os.path.abspath('setup.py'),
-        "exec"), namespace)
-
+    setup = read_setup('.')
     collect.append(setup)
 
     # The long_description field is unicode
