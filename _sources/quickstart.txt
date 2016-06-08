@@ -1,0 +1,54 @@
+Quickstart
+==========
+
+Installation
+------------
+
+.. highlight:: shell
+
+Create three virtual environments: one for buildout, one for testing under
+Python 2, and one for testing under Python 3. ::
+
+   mkdir env
+   virtualenv --no-site-packages env/buildout
+   virtualenv --no-site-packages -p python2 env/py2
+   virtualenv --no-site-packages -p python3 env/py3
+
+We use the first to bootstrap buildout, which also checks out all the projects
+under the umbrella::
+
+   ./env/buildout/bin/python bootstrap.py
+   ./bin/buildout
+
+In the remaining two we install the dependencies needed to run all the
+test suites::
+
+   ./env/py2/bin/pip install -r requirements.txt
+   ./env/py3/bin/pip install -r requirements.txt
+
+
+Running tests
+-------------
+
+You can now run tests for both Python 2 and 3::
+
+   ./env/py2/bin/py.test
+   ./env/py3/bin/py.test
+
+
+Note on the installation on OS X
+--------------------------------
+
+On some versions of OS X, you might have to ensure that the Cryptography_
+library for Python is linked to a recent version of OpenSSL::
+
+
+   brew install openssl
+   export CRYPTOGRAPHY_OSX_NO_LINK_FLAGS=1
+   export LDFLAGS="$(brew --prefix openssl)/lib/libssl.a $(brew --prefix openssl)/lib/libcrypto.a"
+   export CFLAGS="-I$(brew --prefix openssl)/include"
+   ./env/py2/bin/pip install cryptography --no-binary :all:
+   ./env/py3/bin/pip install cryptography --no-binary :all:
+
+
+.. _Cryptography: https://cryptography.io/en/latest/installation/#building-cryptography-on-os-x
