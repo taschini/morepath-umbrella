@@ -37,3 +37,11 @@ def read_setup(project_dir):
     finally:
         mp.undo()
     return setup
+
+
+def get_subproject_dirs():
+    """List the sub-project directories."""
+    import os.path as op
+    import glob
+    pattern = op.join(op.dirname(__file__), '..', 'src', '*')
+    return [d for d in glob.glob(pattern) if op.isdir(d)]

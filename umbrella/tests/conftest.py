@@ -1,11 +1,5 @@
 import pytest
-
-
-def get_subproject_dirs():
-    import os.path as op
-    import glob
-    pattern = op.join(op.dirname(__file__), '..', 'src', '*')
-    return [d for d in glob.glob(pattern) if op.isdir(d)]
+from ..helpers import get_subproject_dirs
 
 
 @pytest.fixture(params=get_subproject_dirs())
