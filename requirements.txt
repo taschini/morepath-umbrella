@@ -1,0 +1,37 @@
+# Umbrella dependencies
+flake8
+
+# Checked-out libraries
+-e src/bowerstatic[test]
+-e src/reg[test]
+-e src/dectate[test]
+-e src/importscan[test]
+-e src/morepath[test]
+-e src/more.basicauth[test]
+-e src/more.chameleon[test]
+-e src/more.forwarded[test]
+-e src/more.itsdangerous[test]
+-e src/more.jinja2[test]
+-e src/more.jwtauth[test]
+-e src/more.mako[test]
+-e src/more.static[test]
+-e src/more.transaction[test]
+-e src/more.webassets[test]
+-e src/morepath_batching[test]
+-e src/morepath_cerebral_todomvc[test]
+-e src/morepath_reactredux[test]
+-e src/morepath_rest_dump_load[test]
+-e src/morepath_sqlalchemy[test]
+-e src/morepath_static[test]
+-e src/morepath_wiki[test]
+
+# Test fixtures for autoscan
+-e src/morepath/fixture_packages/base
+-e src/morepath/fixture_packages/entry-point
+-e src/morepath/fixture_packages/no_mp
+-e src/morepath/fixture_packages/no_mp_ns
+-e src/morepath/fixture_packages/no_mp_sub
+-e src/morepath/fixture_packages/ns
+-e src/morepath/fixture_packages/ns2
+-e src/morepath/fixture_packages/sub
+-e src/morepath/fixture_packages/under_score
