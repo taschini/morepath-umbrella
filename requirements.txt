@@ -1,5 +1,6 @@
 # Umbrella dependencies
 flake8
+tox
 
 # Checked-out libraries
 -e src/bowerstatic[test]
