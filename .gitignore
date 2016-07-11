@@ -24,9 +24,14 @@ __pycache__/
 .mr.developer.cfg
 .coverage
 /htmlcov/
+/.tox/
 
 # Sphinx documentation
 docs/_build/
 
 # PyEnv settings
 .python-version
+
+# Generated data files, etc.
+*.pkl
+/untracked/
