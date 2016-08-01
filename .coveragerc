@@ -1,0 +1,8 @@
+[run]
+source = src
+omit = */tests/*
+       src/morepath/fixture_packages/*
+       src/morepath_wiki/morepath_wiki/html.py
+
+[report]
+show_missing = True
