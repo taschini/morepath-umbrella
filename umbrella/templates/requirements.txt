@@ -1,0 +1,16 @@
+# Umbrella dependencies
+flake8
+tox
+
+# Checked-out libraries
+
+{%- for label, link in libraries + extensions + examples %}
+-e src/{{ label }}[test]
+{%- endfor %}
+
+# Test fixtures for autoscan
+
+{%- for d in fixtures %}
+-e {{ d }}
+{%- endfor %}
+
