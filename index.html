@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Morepath Umbrella 1.0.0.dev0 documentation" href="toc.html" />
-    <link rel="next" title="Quickstart" href="quickstart.html" />
+    <link rel="next" title="License" href="license.html" />
     <link rel="prev" title="Contents" href="toc.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -77,6 +77,69 @@
 </li>
 </ul>
 </div>
+<div class="section" id="quickstart">
+<span id="quickstart"></span><h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<span id="installation"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p class="first">Use Buildout to check out all the project listed above:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>mkdir env
+virtualenv --no-site-packages env/buildout
+./env/buildout/bin/python bootstrap.py
+./bin/buildout
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create as many virtual environments as the versions of Python you
+want to use for testing, at least two, one for Python 2.7 and one
+for Python 3.5:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>mkdir env
+virtualenv --no-site-packages -p python2.7 env/py27
+virtualenv --no-site-packages -p python3.5 env/py35
+</pre></div>
+</div>
+</li>
+<li><p class="first">Use Pip to install all the dependencies:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span><span class="k">for</span> k in ./env/py*<span class="p">;</span> <span class="k">do</span> <span class="nv">$k</span>/bin/pip install -r requirements.txt <span class="p">;</span> <span class="k">done</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="note-on-the-installation-on-os-x">
+<span id="note-on-the-installation-on-os-x"></span><h2>Note on the installation on OS X<a class="headerlink" href="#note-on-the-installation-on-os-x" title="Permalink to this headline">¶</a></h2>
+<p>On some versions of OS X, you might have to ensure that the
+<a class="reference external" href="https://cryptography.io/en/latest/installation/#building-cryptography-on-os-x">Cryptography</a>
+library for Python is linked to a recent version of OpenSSL:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>brew install openssl
+<span class="nb">export</span> <span class="nv">CRYPTOGRAPHY_OSX_NO_LINK_FLAGS</span><span class="o">=</span>1
+<span class="nb">export</span> <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>brew --prefix openssl<span class="k">)</span><span class="s2">/lib/libssl.a </span><span class="k">$(</span>brew --prefix openssl<span class="k">)</span><span class="s2">/lib/libcrypto.a&quot;</span>
+<span class="nb">export</span> <span class="nv">CFLAGS</span><span class="o">=</span><span class="s2">&quot;-I</span><span class="k">$(</span>brew --prefix openssl<span class="k">)</span><span class="s2">/include&quot;</span>
+<span class="k">for</span> k in ./env/py*<span class="p">;</span> <span class="k">do</span> <span class="nv">$k</span>/bin/pip install cryptography --no-binary :all:
+</pre></div>
+</div>
+</div>
+<div class="section" id="common-tasks">
+<span id="common-tasks"></span><h2>Common tasks<a class="headerlink" href="#common-tasks" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Running the tests using one of the virtual environments (say that for Python 3.5):</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>./env/py35/bin/py.test
+</pre></div>
+</div>
+</li>
+<li><p class="first">Running the tests with coverage statistics:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">env</span><span class="o">/</span><span class="n">py35</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">py</span><span class="o">.</span><span class="n">test</span> <span class="o">--</span><span class="n">cov</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Searching <em>text</em> in the projects under the umbrella:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>ack text `cat ackdirs.txt`
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
 
 
           </div>
@@ -105,7 +168,12 @@
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Morepath Umbrella</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#quickstart">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#note-on-the-installation-on-os-x">Note on the installation on OS X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-tasks">Common tasks</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
@@ -113,8 +181,8 @@
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
@@ -128,7 +196,7 @@
       &copy;2016, Stefano Taschini.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.2</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |

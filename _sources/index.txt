@@ -28,3 +28,70 @@ This project puts together the Morepath framework with related projects:
   - [morepath_sqlalchemy](https://github.com/morepath/morepath_sqlalchemy)
   - [morepath_static](https://github.com/morepath/morepath_static)
   - [morepath_wiki](https://github.com/morepath/morepath_wiki)
+
+Quickstart
+==========
+
+Installation
+------------
+
+1. Use Buildout to check out all the project listed above:
+
+   ```shell
+   mkdir env
+   virtualenv --no-site-packages env/buildout
+   ./env/buildout/bin/python bootstrap.py
+   ./bin/buildout
+   ```
+
+2. Create as many virtual environments as the versions of Python you
+   want to use for testing, at least two, one for Python 2.7 and one
+   for Python 3.5:
+
+   ```shell
+   mkdir env
+   virtualenv --no-site-packages -p python2.7 env/py27
+   virtualenv --no-site-packages -p python3.5 env/py35
+   ```
+
+3. Use Pip to install all the dependencies:
+
+   ```shell
+   for k in ./env/py*; do $k/bin/pip install -r requirements.txt ; done
+   ```
+
+Note on the installation on OS X
+--------------------------------
+
+On some versions of OS X, you might have to ensure that the
+[Cryptography](https://cryptography.io/en/latest/installation/#building-cryptography-on-os-x)
+library for Python is linked to a recent version of OpenSSL:
+
+```shell
+brew install openssl
+export CRYPTOGRAPHY_OSX_NO_LINK_FLAGS=1
+export LDFLAGS="$(brew --prefix openssl)/lib/libssl.a $(brew --prefix openssl)/lib/libcrypto.a"
+export CFLAGS="-I$(brew --prefix openssl)/include"
+for k in ./env/py*; do $k/bin/pip install cryptography --no-binary :all:
+```
+
+Common tasks
+------------
+
+*  Running the tests using one of the virtual environments (say that for Python 3.5):
+
+   ```shell
+   ./env/py35/bin/py.test
+   ```
+
+*  Running the tests with coverage statistics:
+
+   ```
+   ./env/py35/bin/py.test --cov
+   ```
+
+*  Searching *text* in the projects under the umbrella:
+
+   ```
+   ack text `cat ackdirs.txt`
+   ```
