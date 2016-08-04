@@ -1,5 +1,5 @@
 # Umbrella dependencies
-flake8
+flake8~=2.6.2
 opster
 tox
 
