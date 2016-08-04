@@ -1,5 +1,6 @@
 # Umbrella dependencies
 flake8
+opster
 tox
 
 # Checked-out libraries
