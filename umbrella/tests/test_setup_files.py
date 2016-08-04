@@ -41,6 +41,9 @@ def test_setup_file(subproject, collect):
     packages = top_level_packages(setup)
     assert len(packages) == 1
 
+    # Classifiers
+    # assert 'License :: OSI Approved :: BSD License' in setup['classifiers']
+
 
 def test_flake8_setup(subproject):
     from flake8.main import check_file
