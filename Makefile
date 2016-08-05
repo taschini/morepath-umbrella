@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all clean status
 
 targets := README.md requirements.txt setup.cfg ackdirs.txt
 
@@ -18,6 +18,9 @@ ackdirs.txt: buildout.cfg
 
 clean:
 	-rm $(targets)
+
+status:
+	@ for k in src/*; do (cd $$k; printf '%-30s ' $$k; git status -sb); done
 
 # This has been used for bootstrapping only.
 src/morepath/doc/examples.rst: buildout.cfg umbrella/templates/examples.rst
