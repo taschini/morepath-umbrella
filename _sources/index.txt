@@ -95,3 +95,9 @@ Common tasks
    ```
    ack text `cat ackdirs.txt`
    ```
+
+*  Check status and branch names of all the projects under the umbrella:
+
+   ```
+   make status
+   ```
