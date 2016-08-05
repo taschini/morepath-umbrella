@@ -35,7 +35,13 @@ Quickstart
 Installation
 ------------
 
-1. Use Buildout to check out all the project listed above:
+1. Clone recursively this repository:
+
+   ```shell
+   git clone --recursive git@github.com:taschini/morepath-umbrella.git
+   ```
+
+2. Use Buildout to check out all the project listed above:
 
    ```shell
    mkdir env
@@ -44,7 +50,7 @@ Installation
    ./bin/buildout
    ```
 
-2. Create as many virtual environments as the versions of Python you
+3. Create as many virtual environments as the versions of Python you
    want to use for testing, at least two, one for Python 2.7 and one
    for Python 3.5:
 
@@ -54,7 +60,7 @@ Installation
    virtualenv --no-site-packages -p python3.5 env/py35
    ```
 
-3. Use Pip to install all the dependencies:
+4. Use Pip to install all the dependencies:
 
    ```shell
    for k in ./env/py*; do $k/bin/pip install -r requirements.txt ; done
@@ -86,18 +92,19 @@ Common tasks
 
 *  Running the tests with coverage statistics:
 
-   ```
+   ```shell
    ./env/py35/bin/py.test --cov
    ```
 
-*  Searching *text* in the projects under the umbrella:
+*  Searching *text* in the projects under the umbrella using
+   [Ack](http://beyondgrep.com/install/):
 
-   ```
+   ```shell
    ack text `cat ackdirs.txt`
    ```
 
 *  Check status and branch names of all the projects under the umbrella:
 
-   ```
+   ```shell
    make status
    ```
