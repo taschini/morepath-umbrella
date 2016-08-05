@@ -82,6 +82,11 @@
 <div class="section" id="installation">
 <span id="installation"></span><h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <ol>
+<li><p class="first">Clone recursively this repository:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>git clone --recursive git@github.com:taschini/morepath-umbrella.git
+</pre></div>
+</div>
+</li>
 <li><p class="first">Use Buildout to check out all the project listed above:</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>mkdir env
 virtualenv --no-site-packages env/buildout
@@ -128,17 +133,18 @@ library for Python is linked to a recent version of OpenSSL:</p>
 </div>
 </li>
 <li><p class="first">Running the tests with coverage statistics:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">env</span><span class="o">/</span><span class="n">py35</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">py</span><span class="o">.</span><span class="n">test</span> <span class="o">--</span><span class="n">cov</span>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>./env/py35/bin/py.test --cov
 </pre></div>
 </div>
 </li>
-<li><p class="first">Searching <em>text</em> in the projects under the umbrella:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>ack text `cat ackdirs.txt`
+<li><p class="first">Searching <em>text</em> in the projects under the umbrella using
+<a class="reference external" href="http://beyondgrep.com/install/">Ack</a>:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>ack text <span class="sb">`</span>cat ackdirs.txt<span class="sb">`</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Check status and branch names of all the projects under the umbrella:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">status</span>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>make status
 </pre></div>
 </div>
 </li>
