@@ -3,6 +3,7 @@ flake8~=2.6.2
 opster
 tox
 Sphinx
+recommonmark
 
 # Checked-out libraries
 -e src/bowerstatic[test]
