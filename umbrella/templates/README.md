@@ -26,6 +26,7 @@ Installation
 
    ```shell
    git clone --recursive git@github.com:taschini/morepath-umbrella.git
+   cd morepath-umbrella
    ```
 
 2. Use Buildout to check out all the project listed above:
@@ -42,7 +43,6 @@ Installation
    for Python 3.5:
 
    ```shell
-   mkdir env
    virtualenv --no-site-packages -p python2.7 env/py27
    virtualenv --no-site-packages -p python3.5 env/py35
    ```
