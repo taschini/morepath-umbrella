@@ -29,6 +29,7 @@
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
+  
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
@@ -84,6 +85,7 @@
 <ol>
 <li><p class="first">Clone recursively this repository:</p>
 <div class="highlight-shell"><div class="highlight"><pre><span></span>git clone --recursive git@github.com:taschini/morepath-umbrella.git
+<span class="nb">cd</span> morepath-umbrella
 </pre></div>
 </div>
 </li>
@@ -98,8 +100,7 @@ virtualenv --no-site-packages env/buildout
 <li><p class="first">Create as many virtual environments as the versions of Python you
 want to use for testing, at least two, one for Python 2.7 and one
 for Python 3.5:</p>
-<div class="highlight-shell"><div class="highlight"><pre><span></span>mkdir env
-virtualenv --no-site-packages -p python2.7 env/py27
+<div class="highlight-shell"><div class="highlight"><pre><span></span>virtualenv --no-site-packages -p python2.7 env/py27
 virtualenv --no-site-packages -p python3.5 env/py35
 </pre></div>
 </div>
@@ -207,8 +208,8 @@ library for Python is linked to a recent version of OpenSSL:</p>
       &copy;2016, Stefano Taschini.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
       <a href="_sources/index.txt"
