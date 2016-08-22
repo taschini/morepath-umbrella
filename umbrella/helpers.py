@@ -19,10 +19,13 @@ def read_setup(project_dir):
     """
     import os
     import setuptools
-    from _pytest.monkeypatch import monkeypatch
-
+    import pytest
+    try:
+        from _pytest.monkeypatch import MonkeyPatch
+    except ImportError:  # pytest < 3.0
+        from _pytest.monkeypatch import monkeypatch as MonkeyPatch
     setup = {}
-    mp = monkeypatch()
+    mp = MonkeyPatch()
     try:
         mp.chdir(project_dir)
         mp.setattr(setuptools, 'setup', setup.update)
