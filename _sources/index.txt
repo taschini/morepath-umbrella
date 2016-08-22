@@ -84,19 +84,20 @@ for k in ./env/py*; do $k/bin/pip install cryptography --no-binary :all:
 Common tasks
 ------------
 
-*  Running the tests using one of the virtual environments (say that for Python 3.5):
+*  Run the tests using one of the virtual environments (say that for
+   Python 3.5):
 
    ```shell
    ./env/py35/bin/py.test
    ```
 
-*  Running the tests with coverage statistics:
+*  Run the tests with coverage statistics:
 
    ```shell
    ./env/py35/bin/py.test --cov
    ```
 
-*  Searching *text* in the projects under the umbrella using
+*  Search for *text* in the projects under the umbrella using
    [Ack](http://beyondgrep.com/install/):
 
    ```shell
