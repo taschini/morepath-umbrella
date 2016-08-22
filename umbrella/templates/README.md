@@ -95,4 +95,3 @@ Common tasks
    ```shell
    make status
    ```
-

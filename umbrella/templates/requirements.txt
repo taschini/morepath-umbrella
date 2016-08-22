@@ -16,4 +16,3 @@ recommonmark
 {%- for d in fixtures %}
 -e {{ d }}
 {%- endfor %}
-

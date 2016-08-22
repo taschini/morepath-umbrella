@@ -11,4 +11,3 @@ The Morepath organization on GitHub maintains a few demo apps:
 
   {{ desc }}.
 {%- endfor %}
-

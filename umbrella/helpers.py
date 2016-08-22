@@ -97,7 +97,9 @@ def get_sources():
 def get_jinja_env():
     "Return the set of templates used for rendering."
     import jinja2
-    return jinja2.Environment(loader=jinja2.PackageLoader(__package__))
+    return jinja2.Environment(
+        keep_trailing_newline=True,
+        loader=jinja2.PackageLoader(__package__))
 
 
 def write_text(path, text):
